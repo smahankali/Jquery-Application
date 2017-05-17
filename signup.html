@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="JSF tutorials">
+		<meta name="keywords" content="sign up, jsf sign in, login">
+		<meta name="author" content="shravya">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>JSF Tutorial</title>
+		<style>
+			.error {color: #FF0000;}
+		</style>
+	</head>
+
+	<body>
+	<?php
+// define variables and set to empty values
+$nameErr = $emailErr = $qualificationErr = $mobileErr = $courseErr = $passErr = "";
+$name = $email = $qualification = $mobile = $course = $password = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+      $nameErr = "Only letters and white space allowed"; 
+    }
+  }
+  
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "Invalid email format"; 
+    }
+  }
+   if (empty($_POST["pass"])) {
+    $passErr = "Password is required";
+  } else {
+    $password = test_input($_POST["pass"]);
+    
+  }
+  if (empty($_POST["mobile"])) {
+    $mobile = "";
+  } else {
+    $mobile = test_input($_POST["mobile"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[ 0-9 ]*$/",$mobile)) {
+      $mobileErr = "Only letters and white space allowed"; 
+    }
+  }
+  
+  
+  if (empty($_POST["qualification"])) {
+    $qualificationErr = "qualification is required";
+  } else {
+    $qualification = test_input($_POST["qualification"]);
+  }
+}
+
+if (empty($_POST["course"])) {
+    $courseErr = "course is required";
+  } else {
+    $course = test_input($_POST["course"]);
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+		<h2>JSF Tutorial Sign Up</h2>
+		<p><span class="error">* required field.</span></p>
+		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+			First Name: 
+					<input type="text" name="name" value="<?php echo $name;?>">
+					<span class="error">* <?php echo $nameErr;?></span>
+					<br><br>
+			E-mail: 
+					<input type="text" name="email" value="<?php echo $email;?>">
+					<span class="error">* <?php echo $emailErr;?></span>
+					<br><br>
+			Password:
+					<input type="password" name="pass" value="<?php echo $password;?>
+					<span class="error">* <?php echo $passErr;?></span>
+					<br><br>
+			Mobile: 
+					<input type="text" name="mobile" value="<?php echo $mobile;?>">
+					<span class="error"><?php echo $mobileErr;?></span>
+					<br><br>
+			Course:<br>
+					<input type="radio" name="course" <?php if (isset($course) && $course=="full") echo "checked";?> value="full">Full Time<br>
+					<input type="radio" name="course" <?php if (isset($course) && $course=="part") echo "checked";?> value="part">Part Time<br>
+					<span class="error">* <?php echo $courseErr;?></span>
+  					<br><br>
+			Qualification:<br>
+					<input type="radio" name="qualification" <?php if (isset($qualification) && $qualification=="student") echo "checked";?> value="student">Student<br>
+					<input type="radio" name="qualification" <?php if (isset($qualification) && $qualification=="other") echo "checked";?> value="other">Other<br>
+					<span class="error">* <?php echo $qualificationErr;?></span>
+					<br><br>
+					
+					<input type="submit" name="submit" value="Submit">  
+		</form>
+
+	</body>
+	</html>

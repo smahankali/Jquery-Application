@@ -1,0 +1,112 @@
+<?php include("auth.php");?>
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="JSF tutorials">
+		<meta name="keywords" content="java server faces, MVC, JSF components,JSF framework">
+		<meta name="author" content="shravya">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>overview</title>
+	</head>
+
+	<body>
+		<header>
+			<h2 align="center">OVERVIEW</h2>
+		</header>
+		
+		
+		<nav>
+			<ul> 
+				<li>	<a href="introduction.html">Introduction</a>	</li> 
+				<li> 	<a href="overview.html">OverView</a>			</li>
+				<li>	<a href="setup.html">Set Up Environment</a>		</li>
+				<li>	<a href="benefits.html">Benefits</a>			</li>
+				<li>	<a href="references.html">References</a>		</li>
+				<li>	<a href="logout.php"> Logout </a>				</li>
+			</ul>
+		</nav>
+		
+		
+		
+		
+		<aside>
+			<p> JSF uses MVC model i.e., Model - View - Controller model. With the MVC Design Pattern, you take some key functionality of the application and break it up 
+				into smaller components.
+			</p>
+			<img id = "aside_img" src="https://blog.udemy.com/wp-content/uploads/2015/09/image0021.png" alt="image002">
+		</aside>
+		
+		
+		<main>
+			<h3 style="margin:100px 0 0 0">The JavaServer Faces (JSF) Framework</h3>
+			
+			<p>JSF is a framework for building web applications in Java. Web apps can be built either by using servlets or jsp or even using other frameworks like Struts, 
+				Spring MVC.
+			</p>
+			
+			<p>However, JSF is the standard web application framework for the Java Enterprise Edition as published by Oracle; thus, it has all the standard 
+				specifications for building Web applications using Java.
+			</p>
+			
+			<p>Since JSF is a very popular framework, many Java development teams use it for building their web applications. </p>
+			
+		
+			<h3>Components of a JSF Application</h3>
+			
+			<p>At a very high level, these are the actual components of a JSF application:</p>
+			
+			<p><strong>Web Page:</strong>
+				 A JSF application is basically a set of web pages to lay out user interface components. We will make use of a special JSF technology called
+				 <em>Facelets.</em>
+			</p>
+			
+			<p><strong>Beans:</strong> 
+				A JSF application is also composed of a set of managed beans. This is the Java code that you will have in the background for holding form data.
+				It is also used to perform back-end operations like talking to a database.
+			</p>
+			
+			<p><strong>Deployment Descriptor:</strong> 
+				There is also an idea of the web deployment descriptor or a web.xml file. Basically, we put some special configurations in that file to handle JSF requests.
+			</p>
+			
+			<p>There are also some optional configuration files, like faces-config.xml. Some custom objects, components, custom tags and validators can also be dropped in.</p>
+			
+			<h3>How JSF Works Behind the Scenes</h3>
+
+			<p>A user submits a request to our application server using their web browser. It will come into our 
+				<em>JSF Faces Servlet.</em> The servlet is part of the JSF library, and you don&rsquo;t have to write it. It handles the routing requests to the appropriate pages.
+			</p>
+			
+			<p>In the background, the faces servlet can read information from the 
+				<em>faces-config.xml</em> file. It can also make use of <em>Managed Beans</em>. These managed beans basically hold the form data. They also talk to 
+				the back-end processes like your database.
+			</p>
+	
+			<p>The faces servlet will determine and route to an appropriate web page – for example, something like 
+				<em>hello-world.xhtml</em>. Pages like it can also use the managed bean to retrieve or display information from the back-end system.
+			</p>
+			
+			<p>At the end, the web page is rendered and sent back to the web browser of the user. It can be simple enough to show some messages on the browser, 
+				or it can display something complex like the results of a database query.
+			</p>
+			
+			<p>
+				<img src="https://blog.udemy.com/wp-content/uploads/2015/09/image010.jpg" alt="image010">
+			</p>
+		
+		</main>
+		
+		
+		
+		
+		<footer> 
+			<div class="copy"></div>
+
+			<p>&copy;Copyright 2016, JSF Tutorials</p> 
+			<a href="#" class="up">Go UP</a>
+			
+
+		</footer>
+	</body>
+</html>

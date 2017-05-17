@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang = "en">
+   <head>
+    	<meta charset="utf-8">
+		<meta name="description" content="JSF tutorials">
+		<meta name="keywords" content="java server faces, login, free trial">
+		<meta name="author" content="shravya">
+		<title>JSF Tutorial</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link href = "http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+		<script src = "http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src = "http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js"></script>
+		
+		<script>
+			$(function() {
+				$( "#tabs-5" ).tabs({
+				heightStyle:"fill",
+				collapsible:true,
+				hide:"slideUp"
+				});
+			});
+		</script>
+		
+		<script type="text/javascript">
+			$(document).ready(function()
+				{
+					$(".pass").hover(
+				function () {
+					$(".pass").text("Click here to register");
+				},
+				function () {
+					$(".pass").text("Start Free Trial");
+				}
+				);
+			});
+		</script>
+		
+		<script>
+      
+			$(document).ready(function()  
+				{    
+				$("#calc").click(function()    
+					{   
+						var total=0;
+						if(($("input[name=course]:checked").val())=="full" && ($('select[name=qual]').val() == "student" ))
+							total="$600";
+						else if(($("input[name=course]:checked").val())=="full" && ($('select[name=qual]').val() == "other") )
+							total="$800";
+						if(($("input[name=course]:checked").val())=="part" && ($('select[name=qual]').val() == "student" ))
+							total="$400";
+						if(($("input[name=course]:checked").val())=="part" && ($('select[name=qual]').val() == "other" ))
+							total="$600";
+				
+						$("#fee").val(total);
+					});
+				});
+		</script>
+		
+		<script>
+			function loadDoc() {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+				document.getElementById("demo").innerHTML = xhttp.responseText;
+				}
+			};
+			xhttp.open("GET", "read.txt", true);
+			xhttp.send();
+			}
+		</script>
+		<style>
+			#tabs-5{
+				font-size: 20px;
+				margin-top : 75px;
+			}
+         
+			.ui-widget-header {
+				background:#b9cd6d;
+				border: 1px solid #b9cd6d;
+				color: #FFFFFF;
+				font-weight: bold;
+			}
+		</style>
+     
+   </head>
+	
+   <body >
+	<header>
+		<h2> JSF WEB TUTORIAL</h2>
+	</header>
+	
+	
+		<div>
+			<input type="button" id="btn" value="Login" onclick="location.href='login.php';" style="height:50px; width:300px; font-size:25px; font-weight:bold;background-color:#b9cd6d;align:center; float:right;">
+			<input type="button" id="btn" value="Register" onclick="location.href='signup.php';" style="height:50px; width:300px; font-size:25px; font-weight:bold;background-color:#b9cd6d;align:center; float:right;">
+			
+			</div>
+
+			<div id = "tabs-5">
+				<ul>
+					<li><a href = "#tabs-8">Free Trial</a></li>
+					<li><a href = "#tabs-7">Fee Calculator</a></li>
+					<li><a href = "#tabs-6">About</a></li>
+				</ul>
+			
+			<div id = "tabs-6" style="background-image:url(java_3.jpg); background-size:cover;">
+				<p>It is an web tutorial specially for JSF ( Java Server Faces).This website gives an overview of JSF. The tutorial classes can be accessed once you are registered in
+					the tutorial.We do offer an trial period of 10 days.
+				</p>
+				<p>
+					We even have discounts for students !!! Based on the number of hours of class per day we divide course into two types : Full time and part time. 
+					One can opt any choice considering their timings.</p>
+				<button type="button" onclick="loadDoc()" style="height:50px; width:300px; font-size:25px; font-weight:bold;background-color:#b9cd6d;align:center; ">Change Content</button>
+			 
+			</div>
+			
+			<div id = "tabs-7" style="background-image:url(java_3.jpg); background-size:cover;">
+				<form>
+					Enter your Email-id :
+					<input type="text" name="mail"><br><br>
+					Select your Qualification :
+					<select name="qual">
+					<option value="student">Student</option>
+					<option value="other">Others</option>
+					</select>
+					<br><br>
+					Select Course type:<br>
+					<input type="radio" name="course" value="full">Full Time<br>
+					<input type="radio" name="course" value="part">Part Time<br>
+					<br><br>
+					<input type="button" id="calc" value="calculate" style="height:50px; width:300px; font-size:25px; font-weight:bold;background-color:#b9cd6d;text-align:center;"><br><br>
+					Your fee would be :<input type="text" id="fee" readonly>
+				</form>
+			</div>
+			
+			<div id = "tabs-8" style="background-image:url(java_3.jpg); background-size:cover;">
+				<p> There will be a 10 day free trial period. To enjoy the free trial you will need to register in the website.</p>
+				<p> However, You will be allowed to access only basic part of the tutorial during this trial period. Enjoy!!!</p>
+				<button class="pass" style="height:50px; width:300px; font-size:25px; font-weight:bold;background-color:#b9cd6d;text-align:center;">Start Free Trial</button>
+			</div>
+		</div>
+	  
+	  
+		<footer> 
+			<div class="copy"></div>
+
+			<p>&copy; Copyright 2016, JSF Tutorials</p> 
+			<a href="#" class="up">Go UP</a>
+			
+
+		</footer>
+		
+   </body>
+	
+</html>
